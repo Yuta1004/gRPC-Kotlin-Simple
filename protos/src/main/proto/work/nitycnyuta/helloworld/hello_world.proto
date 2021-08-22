@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "work.nitycnyuta.helloworld";
+option java_outer_classname = "HelloWorldProto";
+
+package helloworld;
+
+// サービスを定義
+//      => 公開するプロシージャを定義
+service Greeter {
+    rpc SayHello(HelloRequest) returns (HelloReply) {}      // HelloRequestメッセージを受け取りHelloReplyメッセージを返す
+    rpc SayHelloAgain(HelloRequest) returns (HelloReply) {}
+}
+
+// メッセージ形式を定義
+message HelloRequest {
+    string name = 1;    // 「=1」は代入ではなくIDの設定を表している
+}
+
+message HelloReply {
+    string message = 1;
+}
