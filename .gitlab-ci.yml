@@ -1,5 +1,5 @@
 default:
-  image: openjdk:18-slim
+  image: openjdk:18-jdk-slim
 
 stages:
   - build
