@@ -4,3 +4,4 @@ rootProject.name = "grpc_kotlin_simple"
 include("protos")
 include("stub")
 include("server")
+include("client")
