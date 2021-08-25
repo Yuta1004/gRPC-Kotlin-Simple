@@ -2,20 +2,9 @@ default:
   image: openjdk:8-jdk-slim
 
 stages:
-  - build
   - test
 
-build-job:
-  stage: build
-  script:
-    - ./gradlew :stub:jar
-
-unit-test-job:
+gradle-check-job:
   stage: test
   script:
-    - ./gradlew test
-
-lint-test-job:
-  stage: test
-  script:
-    - ./gradlew ktlintCheck
+    - ./gradlew check
