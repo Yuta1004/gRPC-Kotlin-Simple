@@ -20,17 +20,17 @@ gradlew実行ファイル(for Windows)
 
 ### build.gradle.kts
 
-ルートプロジェクト用ビルドスクリプト
+ルートプロジェクト用ビルドスクリプト  
 サブプロジェクトを含めた全てのプロジェクトに適用するビルド設定を書く
 
 ### settings.gradle.kts
 
-Gradle設定ファイル
+Gradle設定ファイル  
 そこまで書くことはなく，サブプロジェクトについての設定がほとんど
 
 ### protos/
 
-`.proto`ファイル用プロジェクト
+`.proto`ファイル用プロジェクト  
 このディレクトリは`stub/`に使用される(=`stub/gradle.build.kts`によってビルドされる)
 
 ### protos/src
@@ -39,7 +39,7 @@ Gradle設定ファイル
 
 ### protos/build.gradle.kts
 
-ビルドスクリプト
+ビルドスクリプト  
 `stub/`によって使用される際に適用する設定を書く(`.proto`の配置場所を`protos/`に固定するなど)
 
 ### stub/
@@ -49,7 +49,7 @@ Gradle設定ファイル
 
 ### stub/build.gradle.kts
 
-スタブ生成用ビルドスクリプト
+スタブ生成用ビルドスクリプト  
 `protobuf(project(":protos"))`の記述が`protos/`への参照を示す(=依存関係)
 
 ### stub/build/
@@ -62,19 +62,19 @@ Gradle設定ファイル
 
 ### stub/build/libs/
 
-スタブを`.jar`にまとめたものが配置されるディレクトリ
+スタブを`.jar`にまとめたものが配置されるディレクトリ  
 このディレクトリのパスをclasspathに追加することでServiceなどを定義することが出来る
 
 ## Commands
 
 ### `./gradlew tasks`
 
-登録されているタスクの内，主要なものを表示する
+登録されているタスクの内，主要なものを表示する  
 `--all`オプションを付けることで全てのタスクを表示する事ができる
 
 ### `./gradlew clean`
 
-`build/`ディレクトリを削除する
+`build/`ディレクトリを削除する  
 不意な削除操作を行わないようにディレクトリ指定することを推奨(`:<project>:clean`)
 
 ### `./gradlew installDist`
@@ -153,3 +153,25 @@ Task :stub:jar
 ```
 
 </div></details>
+
+## Exec
+
+### 1. Build
+
+`$ ./gradlew installDist`
+
+### 1.1 Server
+
+```
+$ ./server/build/install/server/bin/server
+SimpleServer started. (Port: 50000)
+```
+(Press Ctrl-c to stop)
+
+### 1.2 Client
+
+```
+$ ./client/build/install/client/bin/client
+Received: Hello ABC
+Received: Hello?? ABC
+```
