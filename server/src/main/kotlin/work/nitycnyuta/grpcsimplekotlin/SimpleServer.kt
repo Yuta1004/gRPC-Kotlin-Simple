@@ -40,7 +40,7 @@ class SimpleServer(private val port: Int) {
     // ↑のコードは毎回同じ，Serviceの定義が本質
     private class GreeterService : GreeterGrpcKt.GreeterCoroutineImplBase() {
         override suspend fun sayHello(request: HelloRequest) = HelloReply
-                    . newBuilder()
+                    .newBuilder()
                     .setMessage("Hello ${request.name}")
                     .build()
 
